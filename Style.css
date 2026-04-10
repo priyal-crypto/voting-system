@@ -1,7 +1,4 @@
- 
- 
- 
-/* ===== RESET ===== */
+ /* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -16,21 +13,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 15px;
+  padding: 20px;
 }
 
 /* ===== TITLE ===== */
 h1 {
   color: white;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
 /* ===== ROLL INPUT ===== */
 .roll-box {
-grid-column:span 2;
-  max-width: 700px;
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
 }
 
 #roll {
@@ -45,14 +42,14 @@ grid-column:span 2;
 /* ===== FORM GRID ===== */
 form {
   width: 100%;
-  max-width: 600px;
-margin:0 auto;
+  max-width: 500px;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2x2 layout */
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
 
-/* ===== CARD ===== */
+/* ===== CARD WRAPPER ===== */
 label {
   cursor: pointer;
 }
@@ -61,73 +58,88 @@ input[type="radio"] {
   display: none;
 }
 
+/* ===== GLASS CARD ===== */
 .card {
+  height: 180px;
+  border-radius: 25px;
 
-  padding: 20px;
- min-height:180px;
-  text-align: center;
-  transition: 0.3s;
-  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+
+  border: 2px solid rgba(255,255,255,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
 }
 
-/* LOGO */
-.logo {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 10px;
-}
-
-/* TEXT */
-.card span {
-  font-weight: bold;
-  color: #333;
-}
-
-/* HOVER */
+/* ===== HOVER ===== */
 .card:hover {
   transform: scale(1.05);
 }
 
-/* SELECTED */
+/* ===== SELECTED ===== */
 input[type="radio"]:checked + .card {
-  border: 2px solid #5f2c82;
-  background: #f3e8ff;
+  border: 2px solid gold;
+  box-shadow: 0 0 20px gold;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 10px;
+}
+
+/* ===== TEXT ===== */
+.card span {
+  color: white;
+  font-weight: 600;
+  text-align: center;
 }
 
 /* ===== BUTTON ===== */
 button {
-  grid-column: span 2; /* full width */
+  grid-column: span 2;
+
+  margin-top: 15px;
   padding: 12px;
- max-width:300px;
- width:100%;
- display:block;
- margin:20px auto 0;
- 
+
+  border-radius: 30px;
+  border: 2px solid gold;
+
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #4a2169;
+  background: gold;
+  color: black;
 }
 
 /* ===== STATUS ===== */
 #status {
   margin-top: 15px;
   color: white;
+  text-align: center;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
   form {
-    grid-template-columns: 1fr; /* 1 per row */
+    grid-template-columns: 1fr;
   }
- .roll-box{
-  grid-column:span 1;}
- button{
-  grid-column:span 1;
- }
-}
 
   button {
     grid-column: span 1;
   }
 }
+ 
+ 
