@@ -42,11 +42,11 @@ h1 {
 /* ===== FORM GRID ===== */
 form {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 /* ===== CARD WRAPPER ===== */
@@ -132,14 +132,21 @@ button:hover {
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   form {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2,1fr);
   }
 
   button {
     grid-column: span 1;
   }
+}
+@media (max-width: 500px) {
+  form {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+
 }
  
  
