@@ -4,6 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.roll-label{
+  color:white;
+  font-size:0.9rem;
+  margin-bottom:5px;
+  display:block;
+}
 /* 🔹 Roll number container */
 .roll-box {
   width: 100%;
