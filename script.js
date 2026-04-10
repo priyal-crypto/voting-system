@@ -1,6 +1,6 @@
 function submitVote() {
 
-  // Prevent multiple votes (same device)
+  // Prevent multiple votes per device
   if (localStorage.getItem("voted")) {
     alert("You have already voted!");
     return;
@@ -13,7 +13,12 @@ function submitVote() {
     return;
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbzYc__OoWiNM1i1levJOGEVOKGgvwB-ke3ptKOMfS702O7SK_r_uY9z9xHxBccxHAhI/exec", {
+  // 🔒 Disable button immediately
+  const btn = document.querySelector("button");
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+
+  fetch("YOUR_WEB_APP_URL_HERE", {
     method: "POST",
     body: JSON.stringify({
       vote: selected.value
@@ -21,12 +26,15 @@ function submitVote() {
   })
   .then(response => response.text())
   .then(data => {
-    document.getElementById("status").innerText = "✅ Vote submitted successfully!";
+    document.getElementById("status").innerText = "✅ Vote submitted!";
     
+    // Mark as voted in localStorage
     localStorage.setItem("voted", "true");
-    document.querySelector("button").disabled = true;
+    btn.innerText = "Vote Submitted";
   })
   .catch(error => {
     document.getElementById("status").innerText = "❌ Error submitting vote!";
+    btn.disabled = false;
+    btn.innerText = "Submit Vote"; // Allow retry
   });
 }
