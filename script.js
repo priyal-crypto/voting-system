@@ -18,7 +18,7 @@ function submitVote() {
   btn.disabled = true;
   btn.innerText = "Submitting...";
 
-  fetch("YOUR_WEB_APP_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbzYc__OoWiNM1i1levJOGEVOKGgvwB-ke3ptKOMfS702O7SK_r_uY9z9xHxBccxHAhI/exec", {
     method: "POST",
     body: JSON.stringify({
       vote: selected.value
