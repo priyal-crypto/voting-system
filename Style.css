@@ -4,6 +4,48 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* 🔹 Roll number container */
+.roll-box {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* 🔹 Input styling */
+#roll {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+/* 🔹 Placeholder color */
+#roll::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 🔥 Focus effect (very important) */
+#roll:focus {
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* 🔹 Mobile optimization */
+@media (max-width: 600px) {
+  #roll {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+}
 
 body {
   font-family: 'Segoe UI', sans-serif;
