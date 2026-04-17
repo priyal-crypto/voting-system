@@ -1,70 +1,95 @@
 
-/* RESET */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
+/* ===== BODY ===== */
 body {
+
   font-family: 'Segoe UI', sans-serif;
 
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(
+      135deg,
+      #667eea,
+      #764ba2
+  );
 
   min-height: 100vh;
 
   display: flex;
+
   justify-content: center;
   align-items: center;
 
   padding: 20px;
 }
 
-/* MAIN CONTAINER */
+/* ===== MAIN CONTAINER ===== */
 .container {
+
   width: 100%;
   max-width: 750px;
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
 }
 
-/* TITLE */
+/* ===== TITLE ===== */
 h1 {
+
   color: white;
-  margin-bottom: 20px;
+
+  margin-bottom: 25px;
+
+  font-size: 2rem;
+
+  text-align: center;
 }
 
-/* ROLL BOX */
+/* ===== ROLL INPUT ===== */
 .roll-box {
+
   width: 100%;
   max-width: 320px;
 
   margin-bottom: 30px;
+
+  display: flex;
+
+  justify-content: center;
 }
 
 #roll {
+
   width: 100%;
 
-  padding: 12px;
+  padding: 14px;
 
-  border-radius: 12px;
-  border: none;
+  border-radius: 14px;
 
-  text-align: center;
+  border: 2px solid gold;
+
+  outline: none;
 
   font-size: 1.1rem;
 
+  text-align: center;
+
   color: yellow;
+
   font-weight: bold;
 
   background: rgba(0,0,0,0.4);
 }
 
-/* FORM GRID */
+/* ===== FORM GRID ===== */
 form {
+
   width: 100%;
 
   display: grid;
@@ -76,34 +101,42 @@ form {
   justify-items: center;
 }
 
-/* LABEL */
+/* ===== LABEL ===== */
 label {
+
   width: 100%;
+
   max-width: 300px;
 
   cursor: pointer;
 }
 
+/* Hide Radio */
 input[type="radio"] {
   display: none;
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .card {
+
   width: 100%;
+
   height: 180px;
 
   border-radius: 25px;
 
   background: rgba(255,255,255,0.1);
+
   backdrop-filter: blur(15px);
 
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.25);
 
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
@@ -111,66 +144,87 @@ input[type="radio"] {
   transition: 0.3s;
 }
 
-/* HOVER */
+/* Hover */
 .card:hover {
+
   transform: scale(1.05);
 }
 
-/* SELECTED */
+/* Selected */
 input[type="radio"]:checked + .card {
+
   border: 2px solid gold;
+
   box-shadow: 0 0 20px gold;
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .logo {
+
   width: 65px;
+
   height: 65px;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   object-fit: contain;
 }
 
-/* TEXT */
+/* ===== TEXT ===== */
 .card span {
+
   color: white;
+
   font-weight: 600;
+
+  font-size: 1rem;
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 button {
+
   grid-column: span 2;
 
   width: 60%;
 
-  padding: 12px;
+  margin: 15px auto;
 
-  margin-top: 15px;
+  padding: 14px;
 
   border-radius: 30px;
+
   border: 2px solid gold;
 
   background: transparent;
+
   color: white;
+
+  font-size: 1rem;
 
   cursor: pointer;
 
   transition: 0.3s;
 }
 
+/* Button Hover */
 button:hover {
+
   background: gold;
+
   color: black;
 }
 
-/* STATUS */
+/* ===== STATUS ===== */
 #status {
+
   margin-top: 15px;
+
   color: white;
+
+  text-align: center;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
 
   form {
@@ -179,6 +233,11 @@ button:hover {
 
   .card {
     height: 160px;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
   }
 
   button {
