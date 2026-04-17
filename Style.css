@@ -1,44 +1,50 @@
-/* ===== RESET ===== */
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
+/* BODY */
 body {
   font-family: 'Segoe UI', sans-serif;
+
   background: linear-gradient(135deg, #667eea, #764ba2);
 
   min-height: 100vh;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   padding: 20px;
 }
 
-/* ===== TITLE ===== */
-h1 {
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* ===== ROLL INPUT BOX ===== */
-.roll-box {
+/* MAIN CONTAINER */
+.container {
   width: 100%;
-  max-width: 300px;
-  margin-bottom: 25px;
+  max-width: 750px;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Roll Input */
+/* TITLE */
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* ROLL BOX */
+.roll-box {
+  width: 100%;
+  max-width: 320px;
+
+  margin-bottom: 30px;
+}
+
 #roll {
   width: 100%;
 
@@ -46,25 +52,23 @@ h1 {
 
   border-radius: 12px;
   border: none;
-  outline: none;
+
+  text-align: center;
 
   font-size: 1.1rem;
 
-  text-align: center;     /* CENTER TEXT */
-  color: yellow;          /* YELLOW TEXT */
+  color: yellow;
   font-weight: bold;
 
   background: rgba(0,0,0,0.4);
 }
 
-/* ===== FORM GRID ===== */
+/* FORM GRID */
 form {
   width: 100%;
-  max-width: 800px;
 
   display: grid;
 
-  /* EXACT 2 PER ROW */
   grid-template-columns: repeat(2, 1fr);
 
   gap: 25px;
@@ -72,10 +76,11 @@ form {
   justify-items: center;
 }
 
-/* ===== LABEL ===== */
+/* LABEL */
 label {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
+
   cursor: pointer;
 }
 
@@ -83,14 +88,14 @@ input[type="radio"] {
   display: none;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .card {
   width: 100%;
-  height: 200px;
+  height: 180px;
 
   border-radius: 25px;
 
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(15px);
 
   border: 2px solid rgba(255,255,255,0.2);
@@ -98,59 +103,56 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
 
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   text-align: center;
 
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* ===== HOVER ===== */
+/* HOVER */
 .card:hover {
   transform: scale(1.05);
 }
 
-/* ===== SELECTED CARD ===== */
+/* SELECTED */
 input[type="radio"]:checked + .card {
   border: 2px solid gold;
   box-shadow: 0 0 20px gold;
 }
 
-/* ===== LOGO ===== */
+/* LOGO */
 .logo {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
 
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 
   object-fit: contain;
 }
 
-/* ===== PARTY TEXT ===== */
+/* TEXT */
 .card span {
   color: white;
   font-weight: 600;
-  font-size: 1rem;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 button {
   grid-column: span 2;
 
   width: 60%;
 
-  margin: 15px auto 0;
-
   padding: 12px;
+
+  margin-top: 15px;
 
   border-radius: 30px;
   border: 2px solid gold;
 
   background: transparent;
   color: white;
-
-  font-size: 1rem;
 
   cursor: pointer;
 
@@ -162,29 +164,21 @@ button:hover {
   color: black;
 }
 
-/* ===== STATUS ===== */
+/* STATUS */
 #status {
   margin-top: 15px;
   color: white;
-  text-align: center;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media (max-width: 600px) {
 
-  /* STILL KEEP 2 PER ROW */
   form {
-    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
   .card {
-    height: 170px;
-  }
-
-  .logo {
-    width: 60px;
-    height: 60px;
+    height: 160px;
   }
 
   button {
