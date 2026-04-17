@@ -1,9 +1,19 @@
-<body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting System</title>
 
-<div class="container">
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
 
 <h1>🗳️ Cast Your Vote</h1>
 
+<!-- Roll Number -->
 <div class="roll-box">
   <input
     type="text"
@@ -13,46 +23,74 @@
 
 <form>
 
+<!-- Party 1 -->
 <label>
-  <input type="radio" name="vote" value="Yuva Swaraj">
+  <input type="radio"
+         name="vote"
+         value="Yuva Swaraj">
+
   <div class="card">
-    <img src="images/yuva_swaraj.png" class="logo">
+    <img src="images/yuva_swaraj.png"
+         class="logo">
+
     <span>Yuva Swaraj</span>
   </div>
 </label>
 
+<!-- Party 2 -->
 <label>
-  <input type="radio" name="vote" value="Janta Pragati Party">
+  <input type="radio"
+         name="vote"
+         value="Janta Pragati Party">
+
   <div class="card">
-    <img src="images/janta_pragati.png" class="logo">
+    <img src="images/janta_pragati.png"
+         class="logo">
+
     <span>Janta Pragati Party</span>
   </div>
 </label>
 
+<!-- Party 3 -->
 <label>
-  <input type="radio" name="vote" value="Baddie Navnirman Sena">
+  <input type="radio"
+         name="vote"
+         value="Baddie Navnirman Sena">
+
   <div class="card">
-    <img src="images/baddie_navnirman.png" class="logo">
+    <img src="images/baddie_navnirman.png"
+         class="logo">
+
     <span>Baddie Navnirman Sena</span>
   </div>
 </label>
 
+<!-- Party 4 -->
 <label>
-  <input type="radio" name="vote" value="Nav Yuva Party">
+  <input type="radio"
+         name="vote"
+         value="Nav Yuva Party">
+
   <div class="card">
-    <img src="images/nav_yuva.png" class="logo">
+    <img src="images/nav_yuva.png"
+         class="logo">
+
     <span>Nav Yuva Party</span>
   </div>
 </label>
 
-<button type="button" onclick="submitVote()">
+<button type="button"
+        onclick="submitVote()">
+
 Submit Vote
+
 </button>
 
 </form>
 
 <p id="status"></p>
 
-</div>
+<script src="script.js"></script>
 
 </body>
+</html>
