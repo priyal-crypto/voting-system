@@ -1,64 +1,79 @@
 function submitVote() {
 
-  // 🔒 Prevent multiple votes from same browser
-  if (localStorage.getItem("voted")) {
-    alert("You have already voted!");
+  let rollInput = document.getElementById("roll");
+  let errorBox = document.getElementById("rollError");
+  let statusBox = document.getElementById("status");
+  const btn = document.querySelector("button");
+
+  let roll = rollInput.value.trim().toUpperCase();
+
+  // clear error
+  errorBox.innerText = "";
+  rollInput.classList.remove("input-error");
+
+  // 🎯 STRICT COLLEGE FORMAT
+  let pattern = /^(25104|25108)[AB]\d{4}$/;
+
+  if (!pattern.test(roll)) {
+    errorBox.innerText = "⚠️ Enter valid Roll No (e.g., 25104A0075)";
+    rollInput.classList.add("input-error");
+
+    setTimeout(() => {
+      rollInput.classList.remove("input-error");
+    }, 300);
+
     return;
   }
 
-  // 🎯 Get selected party
+  // 🎯 PARTY CHECK
   let selected = document.querySelector('input[name="vote"]:checked');
-
   if (!selected) {
     alert("Please select a party!");
     return;
   }
 
-  // 🆔 Get roll number
-  let roll = document.getElementById("roll").value.trim();
-
-  if (!roll) {
-    alert("Please enter your Roll Number!");
-    return;
-  }
-
-  // 🔘 Button control
-  const btn = document.querySelector("button");
+  // 🔘 UI
   btn.disabled = true;
   btn.innerText = "Submitting...";
+  statusBox.innerText = "Submitting your vote...";
 
-  document.getElementById("status").innerText = "Submitting your vote...";
-
-  // 🌐 Send data to Google Apps Script
+  // 🌐 SEND
   fetch("https://script.google.com/macros/s/AKfycbzYc__OoWiNM1i1levJOGEVOKGgvwB-ke3ptKOMfS702O7SK_r_uY9z9xHxBccxHAhI/exec", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
-      vote: selected.value,
-      roll: roll
+      roll: roll,
+      vote: selected.value
     })
   })
-  .then(response => response.text())
+  .then(res => res.text())
   .then(data => {
 
-    // ✅ If already voted (from backend)
+    console.log("Server:", data);
+
     if (data === "Already voted") {
-      document.getElementById("status").innerText = "❌ This Roll Number has already voted!";
+      errorBox.innerText = "❌ This Roll Number has already voted!";
       btn.disabled = false;
       btn.innerText = "Submit Vote";
       return;
     }
 
-    // ✅ Success
-    document.getElementById("status").innerText = "✅ Vote submitted successfully!";
-    
-    // Save in browser
-    localStorage.setItem("voted", "true");
+    if (data.includes("Error")) {
+      statusBox.innerText = "❌ Server error!";
+      btn.disabled = false;
+      btn.innerText = "Submit Vote";
+      return;
+    }
 
+    statusBox.innerText = "✅ Vote submitted successfully!";
     btn.innerText = "Vote Submitted";
 
   })
-  .catch(error => {
-    document.getElementById("status").innerText = "❌ Error submitting vote. Try again!";
+  .catch(err => {
+    console.log(err);
+    statusBox.innerText = "❌ Error submitting vote!";
     btn.disabled = false;
     btn.innerText = "Submit Vote";
   });
