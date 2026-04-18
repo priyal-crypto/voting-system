@@ -3,10 +3,7 @@
 
 <head>
   <title>Voting System</title>
-
-  <!-- FIXED CSS NAME -->
   <link rel="stylesheet" href="style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -19,6 +16,9 @@
 <div class="roll-box">
   <input type="text" id="roll" placeholder="Enter your Roll Number">
 </div>
+
+<!-- error message -->
+<p id="rollError" style="color:#ff4d4d; text-align:center;"></p>
 
 <form>
 
@@ -54,9 +54,7 @@
   </div>
 </label>
 
-<button type="button" onclick="submitVote()">
-Submit Vote
-</button>
+<button type="button" onclick="submitVote()">Submit Vote</button>
 
 </form>
 
